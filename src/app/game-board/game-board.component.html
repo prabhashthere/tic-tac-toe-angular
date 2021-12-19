@@ -1,0 +1,13 @@
+<h1 *ngIf="!winner && stepCount < 9">Player {{ nextPlayer }}, It's your turn!</h1>
+<h1 *ngIf="!winner && stepCount == 9">The game is a tie!</h1>
+<h1 *ngIf="winner">Player {{ winner }} won the Tic-Tac-Toe!</h1>
+
+<button class="start-button" (click)="setInitValues()">Start new Game</button>
+
+<main class="game-board">
+  <app-square class="app-square"
+    *ngFor="let val of squares; let i = index"
+    [value]="val"
+    (click)="clickSquare(i)">
+  </app-square>
+</main>
